@@ -6,6 +6,7 @@ jobs:
   test:
     name: Build
     runs-on: macos-latest
+    timeout-minutes: 45
 
     steps:
       - uses: actions/checkout@v2
