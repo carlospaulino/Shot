@@ -19,8 +19,6 @@ jobs:
         run: ./gradlew clean checkScalaFmtAll ktlintCheck
       - name: Shot unit tests
         run: ./gradlew test
-      - name: Shot unit tests
-        run: ./gradlew :shot-android:connectedCheck
       - name: Build and install Shot
         run: ./gradlew uploadArchives
       - name: Execute screenshot tests for shot-consumer-compose
@@ -34,6 +32,8 @@ jobs:
         working-directory: shot-consumer-flavors
       - name: Execute screenshot tests for shot-consumer-flavors blue flavor
         run: ./gradlew blueDebugExecuteScreenshotTests
+      - name: Shot-android instrumentation tests
+        run: ./gradlew :shot-android:connectedCheck
         working-directory: shot-consumer-flavors
       - uses: actions/upload-artifact@v2
         if: always()
